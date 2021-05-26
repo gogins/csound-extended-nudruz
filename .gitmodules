@@ -1,0 +1,12 @@
+[submodule "dependencies/fomus"]
+	path = dependencies/fomus
+	url = https://github.com/ormf/fomus.git
+[submodule "dependencies/cm2"]
+	path = dependencies/cm2
+	url = https://github.com/andersvi/cm2.git
+[submodule "dependencies/david-cope-cmmc"]
+	path = dependencies/david-cope-cmmc
+	url = https://github.com/HeinrichApfelmus/david-cope-cmmc.git
+[submodule "dependencies/cm-fomus"]
+	path = dependencies/cm-fomus
+	url = https://github.com/ormf/cm-fomus.git

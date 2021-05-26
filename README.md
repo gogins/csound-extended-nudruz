@@ -62,32 +62,40 @@ log.
 ## Installation
 
 In order to load nudruz.asd you must first install a number of its 
-dependencies, listed in nudruz.asd. Some of these can be installed as Linux 
-packages, some must be installed by cloning Git repositories, some must be 
-installed using Quicklisp, and some must be installed by downloading archives. 
+dependencies, listed in nudruz.asd. 
+
+First, execute `bash update-dependency_modules.sh` in the root directory of 
+this repository in order to fetch libraries that are maintained in GitHub.
+
+Then, for the other dependencies, some can be installed as Linux 
+packages, some must be installed using Quicklisp, and some must be installed 
+by downloading archives. 
+
 In all cases except for Linux packages, you must create a symbolic link 
 to your ~/.local/share/common-lisp/source/ directory. For example, I have 
 satisfied all the non-Linux package Common Lisp dependencies of nudruz as 
 follows:
+
 ```
-mkg@xenakis:~/.local/share/common-lisp/source$ ls -ll ~/.local/share/common-lisp/source/
-total 64
-lrwxrwxrwx 1 mkg mkg 68 Feb  3 19:14 alexandria -> /home/mkg/quicklisp/dists/quicklisp/software/alexandria-20191227-git
-lrwxrwxrwx 1 mkg mkg 64 Feb  3 19:17 babel -> /home/mkg/quicklisp/dists/quicklisp/software/babel-20191130-git/
-lrwxrwxrwx 1 mkg mkg 69 Feb  3 19:18 bordeaux-threads -> /home/mkg/quicklisp/dists/quicklisp/software/bordeaux-threads-v0.8.7/
-lrwxrwxrwx 1 mkg mkg 57 Feb  3 19:20 cffi -> /home/mkg/quicklisp/dists/quicklisp/software/cffi_0.20.1/
-lrwxrwxrwx 1 mkg mkg 68 Feb  2 10:56 cl-heredoc -> /home/mkg/quicklisp/dists/quicklisp/software/cl-heredoc-20101006-git
-lrwxrwxrwx 1 mkg mkg 21 Feb  3 19:50 clm -> /home/mkg/lisp/clm-5/
-lrwxrwxrwx 1 mkg mkg 17 Feb 14  2020 clmath -> /home/mkg/CLMath/
-lrwxrwxrwx 1 mkg mkg 42 Feb 15  2020 cm -> /home/mkg/csound-extended/dependencies/cm2
-lrwxrwxrwx 1 mkg mkg 43 Feb 14  2020 cm2 -> /home/mkg/csound-extended/dependencies/cm2/
-lrwxrwxrwx 1 mkg mkg 48 Feb 15  2020 cm-fomus -> /home/mkg/csound-extended/dependencies/cm-fomus/
-lrwxrwxrwx 1 mkg mkg 18 Feb  3 19:49 cmn -> /home/mkg/lisp/cmn
-lrwxrwxrwx 1 mkg mkg 57 Feb 14  2020 csound -> /home/mkg/csound-extended/dependencies/csound/interfaces/
-lrwxrwxrwx 1 mkg mkg 45 Feb 14  2020 fomus -> /home/mkg/csound-extended/dependencies/fomus/
-lrwxrwxrwx 1 mkg mkg 41 Feb 14  2020 nudruz -> /home/mkg/csound-extended/nudruz/sources/
-lrwxrwxrwx 1 mkg mkg 67 Feb  3 19:20 screamer -> /home/mkg/quicklisp/dists/quicklisp/software/screamer-20190710-git/
-lrwxrwxrwx 1 mkg mkg 75 Feb  3 19:18 trivial-features -> /home/mkg/quicklisp/dists/quicklisp/software/trivial-features-20190710-git/
+mkg@mkg-G55VW:~/.local/share/common-lisp/source$ ls -ll
+total 24
+lrwxrwxrwx 1 mkg mkg 69 Apr 24 10:02 alexandria -> /home/mkg/quicklisp/dists/quicklisp/software/alexandria-20210411-git/
+lrwxrwxrwx 1 mkg mkg 64 Apr 24 10:02 babel -> /home/mkg/quicklisp/dists/quicklisp/software/babel-20200925-git/
+lrwxrwxrwx 1 mkg mkg 69 Apr 24 10:02 bordeaux-threads -> /home/mkg/quicklisp/dists/quicklisp/software/bordeaux-threads-v0.8.8/
+lrwxrwxrwx 1 mkg mkg 56 Apr 24 09:59 cffi -> /home/mkg/quicklisp/dists/quicklisp/software/cffi_0.24.1
+lrwxrwxrwx 1 mkg mkg 69 Apr 24 10:02 cl-heredoc -> /home/mkg/quicklisp/dists/quicklisp/software/cl-heredoc-20210411-git/
+lrwxrwxrwx 1 mkg mkg 16 Apr 24 09:46 clm -> /home/mkg/clm-5/
+lrwxrwxrwx 1 mkg mkg 49 May 26 14:26 cm -> /home/mkg/csound-extended-nudruz/dependencies/cm2
+lrwxrwxrwx 1 mkg mkg 42 Apr 24 09:46 cm2 -> /home/mkg/csound-extended/dependencies/cm2
+lrwxrwxrwx 1 mkg mkg 47 Apr 24 09:47 cm-fomus -> /home/mkg/csound-extended/dependencies/cm-fomus
+lrwxrwxrwx 1 mkg mkg 14 Apr 25 12:30 cmn -> /home/mkg/cmn/
+lrwxrwxrwx 1 mkg mkg 56 Apr 24 09:49 csound -> /home/mkg/csound-extended/dependencies/csound/interfaces
+lrwxrwxrwx 1 mkg mkg 52 May 26 14:28 fomus -> /home/mkg/csound-extended-nudruz/dependencies/fomus/
+lrwxrwxrwx 1 mkg mkg 41 May 26 14:29 nudruz -> /home/mkg/csound-extended-nudruz/sources/
+lrwxrwxrwx 1 mkg mkg 21 Apr 24 10:28 rsm-mod -> /home/mkg/cl-rsm-mod/
+lrwxrwxrwx 1 mkg mkg 67 Apr 24 10:03 screamer -> /home/mkg/quicklisp/dists/quicklisp/software/screamer-20190710-git/
+lrwxrwxrwx 1 mkg mkg 41 May 26 14:28 sources -> /home/mkg/csound-extended-nudruz/sources/
+lrwxrwxrwx 1 mkg mkg 75 Apr 24 10:03 trivial-features -> /home/mkg/quicklisp/dists/quicklisp/software/trivial-features-20210411-git/
 ```
 
 In general, you should use Quicklisp rather than ASDF to load packages and 
